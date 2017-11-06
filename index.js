@@ -1,5 +1,5 @@
 var koa = require("koa");
-var app = new koa();
+var app = module.exports = new koa();
 
 app.use(function *() {
   this.body = "Koa says Hi!"
