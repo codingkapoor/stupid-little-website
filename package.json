@@ -1,0 +1,21 @@
+{
+  "name": "stupid-little-website",
+  "version": "1.0.0",
+  "description": "A small demo site for our npm scripting adventures",
+  "repository": "git@github.com:codingkapoor/stupid-little-website.git",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test -u bdd -R spec",
+    "start": "node index.js",
+    "start:dev": "node index.js 4000"  
+  },
+  "author": "@codingkapoor",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^4.0.1",
+    "should": "^13.1.3"
+  },
+  "dependencies": {
+    "koa": "^2.4.1"
+  }
+}
