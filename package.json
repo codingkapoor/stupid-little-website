@@ -15,7 +15,10 @@
     "compile": "npm run compile:coffee && npm run compile:ts",
     "precompile": "rimraf lib/*",
     "build:less": "lessc client/less/demo.less public/css/site.css",
-    "build:bundle": "browserify ./client/js/app.js -o ./public/js/bundle.js"
+    "build:bundle": "browserify ./client/js/app.js | uglifyjs -mc > ./public/js/bundle.js",
+    "build:clean": "rimraf public/css/*, public/js/*",
+    "prebuild": "npm run build:clean",
+    "build": "npm run build:less && npm run build:bundle"
   },
   "jshintConfig": {
     "esnext": "true",
@@ -32,7 +35,8 @@
     "rimraf": "^2.6.2",
     "should": "^13.1.3",
     "supertest": "^3.0.0",
-    "typescript": "^2.6.1"
+    "typescript": "^2.6.1",
+    "uglify-js": "^3.1.8"
   },
   "dependencies": {
     "koa": "^2.4.1"
