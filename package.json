@@ -9,7 +9,8 @@
     "pretest": "npm run lint",
     "start": "node index.js",
     "start:dev": "node index.js 4000",
-    "lint": "jshint *.js **/*.js"
+    "lint": "jshint --exclude ./lib/*.js *.js **/*.js",
+    "compile:coffee": "coffee --compile --output ./lib ./src/coffeescripts"
   },
   "jshintConfig": {
     "esnext": "true",
@@ -18,6 +19,7 @@
   "author": "@codingkapoor",
   "license": "MIT",
   "devDependencies": {
+    "coffee-script": "^1.12.7",
     "jshint": "^2.9.5",
     "mocha": "^4.0.1",
     "should": "^13.1.3",
