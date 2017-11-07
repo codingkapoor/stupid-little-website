@@ -13,7 +13,8 @@
     "compile:coffee": "coffee --compile --output ./lib ./src/coffeescripts",
     "compile:ts": "tsc --outDir ./lib --module commonjs ./src/typescripts/tsCode.ts",
     "compile": "npm run compile:coffee && npm run compile:ts",
-    "precompile": "rimraf lib/*"
+    "precompile": "rimraf lib/*",
+    "build:less": "lessc client/less/demo.less public/css/site.css"
   },
   "jshintConfig": {
     "esnext": "true",
@@ -24,6 +25,7 @@
   "devDependencies": {
     "coffee-script": "^1.12.7",
     "jshint": "^2.9.5",
+    "less": "^2.7.3",
     "mocha": "^4.0.1",
     "rimraf": "^2.6.2",
     "should": "^13.1.3",
