@@ -6,8 +6,14 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha test -u bdd -R spec",
+    "pretest": "npm run lint",
     "start": "node index.js",
-    "start:dev": "node index.js 4000"
+    "start:dev": "node index.js 4000",
+    "lint": "jshint *.js **/*.js"
+  },
+  "jshintConfig": {
+    "esnext": "true",
+    "noyield": "true"
   },
   "author": "@codingkapoor",
   "license": "MIT",
