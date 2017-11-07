@@ -14,7 +14,8 @@
     "compile:ts": "tsc --outDir ./lib --module commonjs ./src/typescripts/tsCode.ts",
     "compile": "npm run compile:coffee && npm run compile:ts",
     "precompile": "rimraf lib/*",
-    "build:less": "lessc client/less/demo.less public/css/site.css"
+    "build:less": "lessc client/less/demo.less public/css/site.css",
+    "build:bundle": "browserify ./client/js/app.js -o ./public/js/bundle.js"
   },
   "jshintConfig": {
     "esnext": "true",
@@ -23,6 +24,7 @@
   "author": "@codingkapoor",
   "license": "MIT",
   "devDependencies": {
+    "browserify": "^14.5.0",
     "coffee-script": "^1.12.7",
     "jshint": "^2.9.5",
     "less": "^2.7.3",
