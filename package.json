@@ -9,7 +9,7 @@
     "pretest": "npm run compile && npm run lint",
     "start": "node index.js",
     "start:dev": "node index.js 4000",
-    "lint": "jshint --exclude lib/*.js,./lib *.js **/*.js",
+    "lint": "jshint --exclude \"lib/*.js, node_modules/**/*.js\" *.js **/*.js",
     "compile:coffee": "coffee --compile --output ./lib ./src/coffeescripts",
     "compile:ts": "tsc --outDir ./lib --module commonjs ./src/typescripts/tsCode.ts",
     "compile": "npm run compile:coffee && npm run compile:ts",
@@ -18,7 +18,16 @@
     "build:bundle": "browserify ./client/js/app.js | uglifyjs -mc > ./public/js/bundle.js",
     "build:clean": "rimraf public/css/*, public/js/*",
     "prebuild": "npm run build:clean",
-    "build": "npm run build:less && npm run build:bundle"
+    "build": "npm run build:less && npm run build:bundle",
+    "watch:test": "npm run test -- -w -R min",
+    "watch:lint": "watch 'npm run lint' .",
+    "watch:server": "nodemon --ignore client --ignore public index.js",
+    "watch:coffee": "coffee --compile -w --output ./lib ./src/coffeescripts",
+    "watch:ts": "npm run compile:ts -- -w",
+    "watch:bundle": "watchify ./client/js/app.js -o ./public/js/bundle.js -dv",
+    "watch:bundleWatcher": "watch 'npm run build:bundle' client",
+    "watch:browser": "live-reload --port 9091 public/",
+    "watch": "npm run watch:test & npm run watch:bundle & npm run watch:server & npm run watch:browser"
   },
   "jshintConfig": {
     "esnext": "true",
@@ -31,12 +40,16 @@
     "coffee-script": "^1.12.7",
     "jshint": "^2.9.5",
     "less": "^2.7.3",
+    "live-reload": "^1.1.0",
     "mocha": "^4.0.1",
+    "nodemon": "^1.12.1",
     "rimraf": "^2.6.2",
     "should": "^13.1.3",
     "supertest": "^3.0.0",
     "typescript": "^2.6.1",
-    "uglify-js": "^3.1.8"
+    "uglify-js": "^3.1.8",
+    "watch": "^1.0.2",
+    "watchify": "^3.9.0"
   },
   "dependencies": {
     "koa": "^2.4.1"
