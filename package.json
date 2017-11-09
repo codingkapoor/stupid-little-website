@@ -31,7 +31,12 @@
     "version:major": "npm version major",
     "version:minor": "npm version minor",
     "version:patch": "npm version patch",
-    "push:origin": "git push --tags origin master"
+    "push:origin": "git push --tags origin master",
+    "push:heroku": "git push heroku master"
+  },
+  "engines": {
+    "node": "~6.9.5" ,
+    "npm": "~3.10.10"
   },
   "jshintConfig": {
     "esnext": "true",
