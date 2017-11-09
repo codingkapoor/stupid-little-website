@@ -27,7 +27,10 @@
     "watch:bundle": "watchify ./client/js/app.js -o ./public/js/bundle.js -dv",
     "watch:bundleWatcher": "watch 'npm run build:bundle' client",
     "watch:browser": "live-reload --port 9091 public/",
-    "watch": "npm run watch:test & npm run watch:bundle & npm run watch:server & npm run watch:browser"
+    "watch": "npm run watch:test & npm run watch:bundle & npm run watch:server & npm run watch:browser",
+    "version:major": "npm version major",
+    "version:minor": "npm version minor",
+    "version:patch": "npm version patch"
   },
   "jshintConfig": {
     "esnext": "true",
