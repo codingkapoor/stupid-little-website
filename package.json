@@ -1,6 +1,6 @@
 {
   "name": "stupid-little-website",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A small demo site for our npm scripting adventures",
   "repository": "git@github.com:codingkapoor/stupid-little-website.git",
   "main": "index.js",
