@@ -34,7 +34,8 @@
     "push:origin": "git push --tags origin master",
     "push:heroku": "git push heroku master",
     "launch:prod": "heroku open",
-    "deploy:prod": "npm run test:deploy -s && npm run build -s && npm run version:patch",
+    "push": "npm run push:origin && npm run push:heroku",
+    "deploy:prod": "npm run test:deploy -s && npm run build -s && npm run version:patch && npm run push && npm run launch:prod",
     "test:deploy": "npm test -- -R dot"
   },
   "engines": {
