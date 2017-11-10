@@ -31,11 +31,15 @@
     "version:major": "npm version major",
     "version:minor": "npm version minor",
     "version:patch": "npm version patch",
+    "prepush:origin": "echo 'Pushing code to github'",
     "push:origin": "git push --tags origin master",
+    "prepush:heroku": "echo 'Pushing code to heroku'",
     "push:heroku": "git push heroku master",
     "launch:prod": "heroku open",
     "push": "npm run push:origin && npm run push:heroku",
     "deploy:prod": "npm run test:deploy -s && npm run build -s && npm run version:patch && npm run push && npm run launch:prod",
+    "deploy:prod:time": "time(npm run deploy:prod)",
+    "deploy:prod:script": "bash ./deploy-prod.sh",
     "test:deploy": "npm test -- -R dot"
   },
   "engines": {
