@@ -32,10 +32,13 @@
     "version:minor": "npm version minor",
     "version:patch": "npm version patch",
     "push:origin": "git push --tags origin master",
-    "push:heroku": "git push heroku master"
+    "push:heroku": "git push heroku master",
+    "launch:prod": "heroku open",
+    "deploy:prod": "npm run test:deploy -s && npm run build -s && npm run version:patch",
+    "test:deploy": "npm test -- -R dot"
   },
   "engines": {
-    "node": "~6.9.5" ,
+    "node": "~6.9.5",
     "npm": "~3.10.10"
   },
   "jshintConfig": {
@@ -50,7 +53,7 @@
     "jshint": "^2.9.5",
     "less": "^2.7.3",
     "live-reload": "^1.1.0",
-    "mocha": "^4.0.1",
+    "mocha": "2.3.2",
     "nodemon": "^1.12.1",
     "rimraf": "^2.6.2",
     "should": "^13.1.3",
